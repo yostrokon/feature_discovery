@@ -93,7 +93,7 @@ class DescribedFeatureOverlay extends StatefulWidget {
   final Future<bool> Function()? onComplete;
 
   /// Called on dispose
-  final Future<void> Function()? onDispose;
+  final Future<bool> Function()? onDispose;
 
   /// Controls what happens with content that overflows the background's area.
   ///
@@ -282,7 +282,8 @@ class _DescribedFeatureOverlayState extends State<DescribedFeatureOverlay>
 
       _bloc.activeOverlays--;
     }
-    widget.onDispose;
+    if(widget.onDispose!=null)
+      widget.onDispose;
     super.dispose();
   }
 
