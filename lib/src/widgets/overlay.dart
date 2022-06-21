@@ -92,6 +92,9 @@ class DescribedFeatureOverlay extends StatefulWidget {
   /// If it completes with `false`, nothing happens.
   final Future<bool> Function()? onComplete;
 
+  /// Called on dispose
+  final Future<void> Function()? onDispose;
+
   /// Controls what happens with content that overflows the background's area.
   ///
   /// Defaults to [OverflowMode.ignore].
@@ -150,6 +153,7 @@ class DescribedFeatureOverlay extends StatefulWidget {
     this.onOpen,
     this.onComplete,
     this.onDismiss,
+    this.onDispose,
     this.contentLocation = ContentLocation.trivial,
     this.enablePulsingAnimation = true,
     this.allowShowingDuplicate = false,
@@ -278,6 +282,7 @@ class _DescribedFeatureOverlayState extends State<DescribedFeatureOverlay>
 
       _bloc.activeOverlays--;
     }
+    widget.onDispose;
     super.dispose();
   }
 
