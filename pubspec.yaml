@@ -5,6 +5,7 @@ description: >-
   See https://tinyurl.com/FeatureDiscovery
 version: 0.14.1
 homepage: https://github.com/ayalma/feature_discovery
+publish_to: none
 
 environment:
   # This should match the Flutter stable SDK constraint.
